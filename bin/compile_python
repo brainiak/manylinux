@@ -2,23 +2,20 @@
 
 for VERSION in $VERSIONS
 do
-   # Get cython minor version
-   CYTHON=$(find /opt/_internal -maxdepth 1 | grep -- -$VERSION | xargs basename )
-
-   # Get minor version
-   MINOR=$(echo $CYTHON | cut -d- -f2-)
-
    # Download source
-   wget https://github.com/python/cpython/archive/v$MINOR.tar.gz
-   tar zxf v$MINOR
+   wget https://github.com/python/cpython/archive/v$VERSION.tar.gz
+   tar zxf v$VERSION
 
    # Install
-   pushd $CYTHON
+   pushd cpython-$VERSION
       ./configure --enable-shared
       make -j
       make install
    popd
 
+   PYTHON=python${VERSION%.*}
+   $PYTHON -m pip install -U pip wheel
+
    # Clean up
-   rm -rf $CYTHON v$MINOR
+   rm -rf cpython-$VERSION v$VERSION
 done

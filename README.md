@@ -8,5 +8,5 @@ We also violate the ```manylinux``` principle by installing some libraries that 
 We build tags of Python that match those already in ```manylinux```. Users can specify which versions to build via the build command.
 
 ```bash
-VERSIONS="3.4 3.5 3.6" ./bin/build
+VERSIONS="3.4.7 3.5.4 3.6.2" ./bin/build
 ```

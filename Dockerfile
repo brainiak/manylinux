@@ -11,4 +11,4 @@ RUN yum install -y \
 RUN /manylinux/bin/compile_python $VERSIONS
 
 # Remove this symlink because it's so polluted
-RUN rm /usr/local/bin/python3
+RUN rm -f /usr/local/bin/python3
