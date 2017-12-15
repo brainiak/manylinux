@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z $VERSIONS ]; then
-  VERSIONS="3.4 3.5 3.6"
+  VERSIONS="3.4.7 3.5.4 3.6.2"
 fi
 
 docker build -t brainiak/manylinux --build-arg VERSIONS="$VERSIONS" .
